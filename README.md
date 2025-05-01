@@ -31,9 +31,7 @@ This repository presents a representative simulation framework for solving diver
 │   └── Compute_Geometry_Calculations.py   # Computes wall normals, intersections, and reflection angles
 
 📄 README.md                            # Project overview (you're here!)
-
-'''text
-
+'''
 ---
 
 ## 🔒 Access & License
