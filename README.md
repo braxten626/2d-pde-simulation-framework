@@ -38,7 +38,7 @@ Run the simulation from the terminal:
 
 ```bash
 python Main.py
-'''
+```
 ---
 
 ## 🔒 Access & License
