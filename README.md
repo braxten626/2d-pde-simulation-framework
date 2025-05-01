@@ -12,14 +12,14 @@ This project implements a Monte Carlo simulation framework for solving divergenc
 project_root/
 ├── config.py                   # Defines simulation parameters, initial conditions, and domain setup
 ├── diffusion_simulator.py      # Core simulation function for 2D advection-diffusion processes
-├── geometry.py                 #
-├── ititial_conditions.py       # 
+├── geometry.py                 # Wall definitions, intersection logic, and reflection angle computation
+├── ititial_conditions.py       # Helper functions for setting particle initial positions and values
 ├── main.py                     # Entry point for running a simulation using the config and simulator
 ├── utils/
 │   ├── io.py                   # Functions to save simulation data (.csv, .npz) and configs (.json)
 │   └── __init__.py             # Marks the utils folder as a package
-├── step_models.py              #
-├── vector_utils.py             # 
+├── step_models.py              # Modular diffusion step generators (e.g., constant, mapped)
+├── vector_utils.py             # Vector rotation and linear algebra utilities
 ├── results/                    # Directory where simulation outputs are saved
 └── README.md                   # Project overview, instructions, and documentation
 ```
