@@ -1,22 +1,52 @@
 """
-Configuration file for runtime parameters used in the Monte Carlo solver.
+Configuration module for 2D Monte Carlo advection-diffusion simulations.
 
-Includes settings for simulation duration, particle count, and initialization.
+This module provides a centralized interface for defining simulation parameters,
+initial conditions, and domain-specific geometry. It returns a fully constructed
+dictionary containing all values needed to run a simulation.
+
+Supports optional overrides for flexibility and future integration with YAML/JSON configs.
 """
-
 import numpy as np
+from geometry import define_wall_segments
 
-number_of_realizations = 10**6
+def load_config(overrides=None):
+    """
+    Initializes and returns a general-purpose simulation configuration dictionary.
 
-config = {
-    "seed": 52,
-    "number_of_steps": 10**4,
-    "number_of_realizations": number_of_realizations,
-    "final_time": 1.0,
-    "diffusion_coefficient": 1.0,
-    "number_of_bins_in_histogram": 100,
-}
+    Parameters
+    ----------
+    overrides : dict, optional
+        A dictionary of values to override default settings.
 
-# Initialize input arrays
-config["initial_positions"] = np.zeros(number_of_realizations)
-config["initial_T_values"] = np.ones(number_of_realizations)
+    Returns
+    -------
+    config : dict
+        Fully constructed configuration dictionary with derived arrays.
+    """
+
+    # 1. Base default configuration
+    config = {
+        "seed": 52,
+        "number_of_realizations": 10**6,
+        "final_time": 1.0,
+        "diffusion_coefficient": 1.0,
+        "number_of_bins_in_histogram": 100,
+        "domain_type": "half_plane",
+        "domain_size": 1.0,
+        "diffusion_model": "constant",
+    }
+
+    # 2. Apply user overrides if provided
+    if overrides:
+        config.update(overrides)
+
+    # 3. Derived arrays
+    config["initial_positions"] = np.zeros(config["number_of_realizations"])
+    config["initial_T_values"] = np.ones(config["number_of_realizations"])
+    config["wall_array"] = define_wall_segments(
+        config["domain_type"],
+        config["domain_size"]
+    )
+
+    return config
