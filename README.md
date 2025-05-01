@@ -14,24 +14,23 @@ This repository presents a representative simulation framework for solving diver
 - Includes statistical tools for comparing simulation output with exact solutions
 - Incorporates coordinate mappings to simplify PDE structure in transformed domains
 
----
-
 ## 🧱 Project Structure
 
 ```text
-📁 2D_results/                          # Output folder for CSVs and figures
-│   ├── fort.1                          # Simulation output file (Tu, Tv, Q fields)
-│   ├── Exact_v_Sim.png                 # Heatmap of simulation vs. exact solution
-│   └── Exact_v_Map.png                 # Solution comparison in mapped coordinates
+📁 2D_results/                      
+│   ├── fort.1                     # Simulation output file (Tu, Tv, Q fields)
+│   ├── Exact_v_Sim.png            # Heatmap of simulation vs. exact solution
+│   └── Exact_v_Map.png            # Solution comparison in mapped coordinates
 
 📁 2D_Brownian_Motion_N_Walls/
-│   ├── Main.py                            # Entry point: orchestrates full simulation workflow
-│   ├── Parameters.py                      # Defines simulation parameters (domain, time, drift, diffusion, etc.)
-│   ├── Simulate_Brownain_Motion.py        # Simulates 2D Brownian motion with drift and boundary reflection
-│   └── Compute_Geometry_Calculations.py   # Computes wall normals, intersections, and reflection angles
+│   ├── Main.py                    # Entry point: orchestrates full simulation workflow
+│   ├── Parameters.py              # Defines all simulation parameters (domain, time, drift, diffusion, etc.)
+│   ├── Simulate_Brownain_Motion.py # Simulates 2D Brownian motion with drift and boundary reflection
+│   └── Compute_Geometry_Calculations.py # Computes geometry-related quantities: wall normals, intersections, angles
 
-📄 README.md                            # Project overview (you're here!)
-'''
+📄 README.md                        # Project overview (you're here!)
+```
+
 
 ---
 
