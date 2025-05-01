@@ -8,17 +8,17 @@ PDE using a particle-based Monte Carlo method.
 """
 
 from Simulate_Brownain_Motion import advection_diffusion_walk
-from Parameters import parameters
+from config import config
 
 
 def main():
-    seed = parameters["seed"]
-    number_of_steps = parameters["number_of_steps"]
-    number_of_realizations = parameters["number_of_realizations"]
-    final_time = parameters["final_time"]
-    diffusion_coefficient = parameters["diffusion_coefficient"]
-    initial_positions = parameters["initial_positions"]
-    initial_T_values = parameters["initial_T_values"]
+    seed = config["seed"]
+    number_of_steps = config["number_of_steps"]
+    number_of_realizations = config["number_of_realizations"]
+    final_time = config["final_time"]
+    diffusion_coefficient = config["diffusion_coefficient"]
+    initial_positions = config["initial_positions"]
+    initial_T_values = config["initial_T_values"]
 
     advection_diffusion_walk(
         number_of_steps,
